@@ -6,7 +6,11 @@ target 'FootballLeague' do
   use_frameworks!
 
   # Pods for FootballLeague
-
+  
+  pod 'ReachabilitySwift'
+  pod 'Alamofire'
+  pod 'Kingfisher'
+  
   target 'FootballLeagueTests' do
     inherit! :search_paths
     # Pods for testing
