@@ -26,17 +26,19 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Qd-urE">
                                         <rect key="frame" x="0.0" y="0.0" width="308.5" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
                                         <color key="highlightedColor" red="0.08235294118" green="0.070588235289999995" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHQ-yh-Am4">
                                         <rect key="frame" x="0.0" y="0.0" width="308.5" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="0.08235294118" green="0.070588235289999995" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJ5-hx-oq9">
                                         <rect key="frame" x="0.0" y="0.0" width="308.5" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="13"/>
+                                        <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="0.08235294118" green="0.070588235289999995" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                 </subviews>
@@ -77,6 +79,11 @@
                 <constraint firstItem="81w-gl-nKw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XNZ-dV-tVG"/>
             </constraints>
             <size key="customSize" width="455" height="170"/>
+            <connections>
+                <outlet property="colorsLabel" destination="iHQ-yh-Am4" id="Y1N-7k-L3i"/>
+                <outlet property="nameLabel" destination="txJ-Qd-urE" id="Qvc-hx-1oN"/>
+                <outlet property="venueLabel" destination="sJ5-hx-oq9" id="eMo-Fg-1V7"/>
+            </connections>
             <point key="canvasLocation" x="347.10144927536237" y="60.9375"/>
         </collectionViewCell>
     </objects>
