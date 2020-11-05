@@ -40,7 +40,8 @@ enum Router: URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
         urlRequest.method = method
         urlRequest.headers = header
-        return try Alamofire.JSONEncoding.default.encode(urlRequest, with: parameter)
+//        urlRequest.enco
+        return urlRequest
     }
 }
 

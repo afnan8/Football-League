@@ -21,7 +21,6 @@ class Request {
                         let objects = response.value as? [String: Any]
                         if response.response?.statusCode == 200 {
                             callbackSuccess!(objects!)
-                            
                         } else {
                             callbackFail!(response.response?.statusCode)
                         }

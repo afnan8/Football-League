@@ -10,7 +10,8 @@ target 'FootballLeague' do
   pod 'ReachabilitySwift'
   pod 'Alamofire'
   pod 'Kingfisher'
-  
+  pod 'SnapKit'
+
   target 'FootballLeagueTests' do
     inherit! :search_paths
     # Pods for testing
