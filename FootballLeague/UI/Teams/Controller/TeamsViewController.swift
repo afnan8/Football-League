@@ -14,7 +14,7 @@ class TeamsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var teamsFromAPI: [Team]!
-    var teams = [Team]()
+    lazy var teams = [Team]()
     
     var isFinish = false
     var count = 0
@@ -22,6 +22,7 @@ class TeamsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetworkListener.instance.delegate = self
         self.navigationItem.title = "Premier League Teams"
         setupCollectionView()
         getAllTeams()
@@ -30,6 +31,12 @@ class TeamsViewController: UIViewController {
     func setupCollectionView() {
         let nib = UINib(nibName: "TeamCollectionCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: teamCellIdentifier)
+    }
+    
+    func openDetailsViewController(_ index: Int) {
+        let viewController = TeamDetailsViewController()
+        viewController.id = teams[index].id
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -40,7 +47,7 @@ extension TeamsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return teamsFromAPI != nil ? teams.count : 0
+        return teams.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,7 +79,7 @@ extension TeamsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //open team details
+        openDetailsViewController(indexPath.row)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -84,11 +91,30 @@ extension TeamsViewController: UICollectionViewDelegate, UICollectionViewDataSou
             }
         }
     }
-    
 }
-extension TeamsViewController {
+
+//extension TeamsViewController: NetworkStatusDelegate {
+//    func isNetworkConnected(_ isConnected: Bool) {
+//        if isConnected {
+//
+//        } else {
+//
+//        }
+//    }
+//}
+
+extension TeamsViewController { // API Handling
     
     func getAllTeams() {
+        if !Connectivity.isConnectedToInternet() { //No internetConnection
+            getTeamsFromLocalStorage()
+        } else {
+            getTeamsFromAPI()
+        }
+    }
+    
+    
+    func getTeamsFromAPI() {
         ActivityIndicator.instance.show(self.view)
         Request.requestAPI(router: .teamSubresource, callbackSuccess: { [weak self] (result) in
             let teamsArray = result["teams"] as? [[String:Any]]
@@ -100,6 +126,7 @@ extension TeamsViewController {
             print(result)
         }
     }
+    
     
     func loadTeamMember(_ teamsList: [[String: Any]]?) {
         self.teamsFromAPI = [Team]()
@@ -118,12 +145,36 @@ extension TeamsViewController {
         teams.append(contentsOf: arr)
         start = count
         collectionView.reloadData()
+        saveTeamsToLocalStorage(Array(arr))
     }
-
+    
     func checkIfLoadingFinish() {
         if count > teamsFromAPI.count {
             count = teamsFromAPI.count
             isFinish = true
         }
+    }  
+}
+
+extension TeamsViewController { //datebase Handling
+    
+    func saveTeamsToLocalStorage(_ teams: [Team]) {
+        var teamsObject = [TeamObject]()
+        for team in teams {
+            let teamObj = team.managedObject()
+            teamsObject.append(teamObj)
+        }
+        RealmManager.instance.saveObjects(Array(teamsObject))
     }
+    
+    func getTeamsFromLocalStorage() {
+        let teamsObject = RealmManager.instance.getAllSavedObjects(TeamObject())
+        for teamObj in teamsObject {
+            let team = Team(managedObject: teamObj)
+            self.teams.append(team)
+        }
+        isFinish = true //To disable load in scroll in offline mode
+        self.collectionView.reloadData()
+    }
+    
 }

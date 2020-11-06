@@ -12,7 +12,8 @@ target 'FootballLeague' do
   pod 'Kingfisher'
   pod 'SnapKit'
   pod 'SVGKit'
-
+  pod 'RealmSwift'
+  
   target 'FootballLeagueTests' do
     inherit! :search_paths
     # Pods for testing

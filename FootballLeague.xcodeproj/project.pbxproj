@@ -16,6 +16,13 @@
 		44B27AF1255488BA008755E2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27AF0255488BA008755E2 /* UIImageView+Extension.swift */; };
 		44B27B0225548E3A008755E2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B0125548E3A008755E2 /* UIView+Extension.swift */; };
 		44B27B072554911A008755E2 /* URLOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B062554911A008755E2 /* URLOpen.swift */; };
+		44B27B1025558F39008755E2 /* TeamDetailsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B0F25558F39008755E2 /* TeamDetailsAPI.swift */; };
+		44B27B192555900F008755E2 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B172555900F008755E2 /* TeamDetailsViewController.swift */; };
+		44B27B1A2555900F008755E2 /* TeamDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B27B182555900F008755E2 /* TeamDetailsViewController.xib */; };
+		44B27B1F2555AC8D008755E2 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B1E2555AC8D008755E2 /* Cache.swift */; };
+		44B27B382555C571008755E2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B372555C571008755E2 /* RealmManager.swift */; };
+		44B27B502555ED58008755E2 /* TeamRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B4F2555ED57008755E2 /* TeamRealmObject.swift */; };
+		44B27B552555EEDD008755E2 /* NetworkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B542555EEDD008755E2 /* NetworkListener.swift */; };
 		44D8311B2551F04B0013FF4D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D831192551F04B0013FF4D /* Request.swift */; };
 		44D8311C2551F04B0013FF4D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8311A2551F04B0013FF4D /* Router.swift */; };
 		44D831342551F1440013FF4D /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D831322551F1440013FF4D /* TeamsViewController.swift */; };
@@ -61,6 +68,13 @@
 		44B27AF0255488BA008755E2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		44B27B0125548E3A008755E2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		44B27B062554911A008755E2 /* URLOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpen.swift; sourceTree = "<group>"; };
+		44B27B0F25558F39008755E2 /* TeamDetailsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsAPI.swift; sourceTree = "<group>"; };
+		44B27B172555900F008755E2 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
+		44B27B182555900F008755E2 /* TeamDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamDetailsViewController.xib; sourceTree = "<group>"; };
+		44B27B1E2555AC8D008755E2 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		44B27B372555C571008755E2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		44B27B4F2555ED57008755E2 /* TeamRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRealmObject.swift; sourceTree = "<group>"; };
+		44B27B542555EEDD008755E2 /* NetworkListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListener.swift; sourceTree = "<group>"; };
 		44D831192551F04B0013FF4D /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		44D8311A2551F04B0013FF4D /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		44D831322551F1440013FF4D /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +184,40 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		44B27B0C25558E74008755E2 /* TeamsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				44B27B0E25558E8A008755E2 /* Model */,
+				44B27B0D25558E82008755E2 /* Controller */,
+			);
+			path = TeamsDetails;
+			sourceTree = "<group>";
+		};
+		44B27B0D25558E82008755E2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44B27B172555900F008755E2 /* TeamDetailsViewController.swift */,
+				44B27B182555900F008755E2 /* TeamDetailsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44B27B0E25558E8A008755E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44B27B0F25558F39008755E2 /* TeamDetailsAPI.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44B27B362555C0AC008755E2 /* DatabaseLayer */ = {
+			isa = PBXGroup;
+			children = (
+				44B27B372555C571008755E2 /* RealmManager.swift */,
+			);
+			path = DatabaseLayer;
+			sourceTree = "<group>";
+		};
 		44D831182551F04B0013FF4D /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,9 +230,12 @@
 		44D831202551F05C0013FF4D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				44B27B362555C0AC008755E2 /* DatabaseLayer */,
 				44B27AEF255488A3008755E2 /* Extensions */,
 				44D831492551F5420013FF4D /* ActivityIndicator.swift */,
 				44B27B062554911A008755E2 /* URLOpen.swift */,
+				44B27B1E2555AC8D008755E2 /* Cache.swift */,
+				44B27B542555EEDD008755E2 /* NetworkListener.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -192,6 +243,7 @@
 		44D8312D2551F1140013FF4D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				44B27B0C25558E74008755E2 /* TeamsDetails */,
 				44D8312E2551F1200013FF4D /* Teams */,
 			);
 			path = UI;
@@ -229,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				44D831432551F4820013FF4D /* Team.swift */,
+				44B27B4F2555ED57008755E2 /* TeamRealmObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				446AF1732551E380001184D4 /* LaunchScreen.storyboard in Resources */,
+				44B27B1A2555900F008755E2 /* TeamDetailsViewController.xib in Resources */,
 				446AF1702551E380001184D4 /* Assets.xcassets in Resources */,
 				44D8313D2551F35F0013FF4D /* TeamCollectionCell.xib in Resources */,
 				44D831352551F1440013FF4D /* TeamsViewController.xib in Resources */,
@@ -495,15 +549,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B27B552555EEDD008755E2 /* NetworkListener.swift in Sources */,
 				44D831442551F4820013FF4D /* Team.swift in Sources */,
 				446AF1672551E37F001184D4 /* AppDelegate.swift in Sources */,
+				44B27B1025558F39008755E2 /* TeamDetailsAPI.swift in Sources */,
 				44B27AF1255488BA008755E2 /* UIImageView+Extension.swift in Sources */,
 				44B27B0225548E3A008755E2 /* UIView+Extension.swift in Sources */,
+				44B27B382555C571008755E2 /* RealmManager.swift in Sources */,
 				44D831342551F1440013FF4D /* TeamsViewController.swift in Sources */,
+				44B27B1F2555AC8D008755E2 /* Cache.swift in Sources */,
 				44D8311C2551F04B0013FF4D /* Router.swift in Sources */,
 				44D8314A2551F5420013FF4D /* ActivityIndicator.swift in Sources */,
+				44B27B502555ED58008755E2 /* TeamRealmObject.swift in Sources */,
 				44D8311B2551F04B0013FF4D /* Request.swift in Sources */,
 				44D8313C2551F35F0013FF4D /* TeamCollectionCell.swift in Sources */,
+				44B27B192555900F008755E2 /* TeamDetailsViewController.swift in Sources */,
 				44B27B072554911A008755E2 /* URLOpen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

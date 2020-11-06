@@ -19,7 +19,6 @@ extension UIImageView {
             self?.kf.indicator?.stopAnimatingView()
             switch result {
             case .success:
-//                self?.contentMode = .scaleToFill
                 break
             case .failure:
                 self?.contentMode = .scaleAspectFit
@@ -29,7 +28,7 @@ extension UIImageView {
     }
 }
 
-public struct SVGImgProcessor:ImageProcessor {
+public struct SVGImgProcessor: ImageProcessor {
     public var identifier: String = "com.appidentifier.webpprocessor"
     public func process(item: ImageProcessItem, options: KingfisherParsedOptionsInfo) -> KFCrossPlatformImage? {
         switch item {

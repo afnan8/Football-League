@@ -31,7 +31,9 @@ class TeamCollectionCell: UICollectionViewCell {
         imageView.showImage(team.crestUrl)
         nameLabel.text = team.name ?? "-"
         colorsLabel.text = team.clubColors ?? "-"
-        venueLabel.text = "\(team.area.name ?? "-")"
+        if let area = team.area {
+            venueLabel.text = "\(area.name ?? "-")"
+        }
         websiteButton.setTitle(team.website ?? "Link Not Available", for: .normal)
     }
     
