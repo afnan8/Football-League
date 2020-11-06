@@ -12,11 +12,14 @@ enum Router: URLRequestConvertible {
     static var baseURL = "https://api.football-data.org/"
     
     case teamSubresource
+    case teamDetails(_ id: Int)
     
     var url: URL {
         switch self {
         case .teamSubresource:
             return URL(string: Router.baseURL + "v2/competitions/2001/teams")!
+        case .teamDetails(let id):
+            return URL(string: Router.baseURL + "v2/teams/\(id)")!
         }
     }
     
@@ -31,7 +34,7 @@ enum Router: URLRequestConvertible {
     
     var parameter: Parameters? {
         switch self {
-        case .teamSubresource:
+        case .teamSubresource, .teamDetails:
             return [:]
         }
     }

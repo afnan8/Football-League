@@ -22,7 +22,7 @@ class TeamsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkListener.instance.delegate = self
+//        NetworkListener.instance.delegate = self
         self.navigationItem.title = "Premier League Teams"
         setupCollectionView()
         getAllTeams()
