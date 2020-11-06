@@ -66,13 +66,22 @@
                                     <constraint firstAttribute="trailing" secondItem="txJ-Qd-urE" secondAttribute="trailing" id="z9h-3C-s8f"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H06-II-75O">
+                                <rect key="frame" x="404" y="18" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="toggleFavoritAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="NaZ-O5-jGR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Bmh-4x-Dt8" firstAttribute="leading" secondItem="81w-gl-nKw" secondAttribute="leading" id="1L3-p3-hkW"/>
                             <constraint firstItem="Bmh-4x-Dt8" firstAttribute="height" secondItem="81w-gl-nKw" secondAttribute="height" multiplier="0.8" id="3m2-rK-R3M"/>
                             <constraint firstItem="ghQ-Ag-UcH" firstAttribute="centerY" secondItem="81w-gl-nKw" secondAttribute="centerY" priority="999" id="3zs-LT-iwG"/>
+                            <constraint firstItem="H06-II-75O" firstAttribute="top" secondItem="81w-gl-nKw" secondAttribute="top" constant="18" id="Azj-UH-kOH"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ghQ-Ag-UcH" secondAttribute="bottom" id="G36-RN-kx9"/>
+                            <constraint firstAttribute="trailing" secondItem="H06-II-75O" secondAttribute="trailing" constant="5" id="RGS-pb-3mZ"/>
                             <constraint firstAttribute="trailing" secondItem="ghQ-Ag-UcH" secondAttribute="trailing" constant="5" id="iKu-mU-poT"/>
                             <constraint firstItem="Bmh-4x-Dt8" firstAttribute="width" secondItem="81w-gl-nKw" secondAttribute="width" multiplier="0.3" id="jZk-Oz-NWl"/>
                             <constraint firstItem="ghQ-Ag-UcH" firstAttribute="leading" secondItem="Bmh-4x-Dt8" secondAttribute="trailing" constant="5" id="mZV-UB-XAd"/>
@@ -90,6 +99,7 @@
             <size key="customSize" width="455" height="170"/>
             <connections>
                 <outlet property="colorsLabel" destination="iHQ-yh-Am4" id="Y1N-7k-L3i"/>
+                <outlet property="favoritButton" destination="H06-II-75O" id="FXh-HB-GaU"/>
                 <outlet property="imageView" destination="Bmh-4x-Dt8" id="sCh-l2-6NB"/>
                 <outlet property="nameLabel" destination="txJ-Qd-urE" id="Qvc-hx-1oN"/>
                 <outlet property="venueLabel" destination="sJ5-hx-oq9" id="eMo-Fg-1V7"/>

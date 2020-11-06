@@ -23,7 +23,8 @@ struct Team {
     var tla : String!
     var venue : String!
     var website : String!
-
+    var isOnFavoritList: Bool = false
+    
     init(fromDictionary dictionary: [String:Any]){
         address = dictionary["address"] as? String
         if let areaData = dictionary["area"] as? [String:Any]{
@@ -63,10 +64,12 @@ extension Team: Persistable {
         tla = managedObject.tla
         venue = managedObject.venue
         website = managedObject.website
+        isOnFavoritList = managedObject.isOnFavoritList
     }
     
     public func managedObject() -> TeamObject {
         let team = TeamObject()
+        team.isOnFavoritList = isOnFavoritList
         team.address = address
         team.area = area?.managedObject()
         team.clubColors = clubColors

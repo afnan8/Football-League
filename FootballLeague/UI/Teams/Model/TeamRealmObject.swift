@@ -23,7 +23,8 @@ final class TeamObject: Object {
     @objc dynamic var tla: String! = ""
     @objc dynamic var venue: String! = ""
     @objc dynamic var website: String! = ""
-    
+    @objc dynamic var isOnFavoritList: Bool = false
+
     override static func primaryKey() -> String? {
             return "id"
     }
