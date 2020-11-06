@@ -40,7 +40,6 @@ enum Router: URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
         urlRequest.method = method
         urlRequest.headers = header
-//        urlRequest.enco
         return urlRequest
     }
 }

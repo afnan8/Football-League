@@ -11,6 +11,7 @@ target 'FootballLeague' do
   pod 'Alamofire'
   pod 'Kingfisher'
   pod 'SnapKit'
+  pod 'SVGKit'
 
   target 'FootballLeagueTests' do
     inherit! :search_paths

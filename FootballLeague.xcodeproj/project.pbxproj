@@ -13,6 +13,9 @@
 		446AF1732551E380001184D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446AF1712551E380001184D4 /* LaunchScreen.storyboard */; };
 		446AF17E2551E380001184D4 /* FootballLeagueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446AF17D2551E380001184D4 /* FootballLeagueTests.swift */; };
 		446AF1892551E380001184D4 /* FootballLeagueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446AF1882551E380001184D4 /* FootballLeagueUITests.swift */; };
+		44B27AF1255488BA008755E2 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27AF0255488BA008755E2 /* UIImageView+Extension.swift */; };
+		44B27B0225548E3A008755E2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B0125548E3A008755E2 /* UIView+Extension.swift */; };
+		44B27B072554911A008755E2 /* URLOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B27B062554911A008755E2 /* URLOpen.swift */; };
 		44D8311B2551F04B0013FF4D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D831192551F04B0013FF4D /* Request.swift */; };
 		44D8311C2551F04B0013FF4D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D8311A2551F04B0013FF4D /* Router.swift */; };
 		44D831342551F1440013FF4D /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D831322551F1440013FF4D /* TeamsViewController.swift */; };
@@ -55,6 +58,9 @@
 		446AF1842551E380001184D4 /* FootballLeagueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballLeagueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		446AF1882551E380001184D4 /* FootballLeagueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballLeagueUITests.swift; sourceTree = "<group>"; };
 		446AF18A2551E380001184D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44B27AF0255488BA008755E2 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		44B27B0125548E3A008755E2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		44B27B062554911A008755E2 /* URLOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpen.swift; sourceTree = "<group>"; };
 		44D831192551F04B0013FF4D /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		44D8311A2551F04B0013FF4D /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		44D831322551F1440013FF4D /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +161,15 @@
 			path = FootballLeagueUITests;
 			sourceTree = "<group>";
 		};
+		44B27AEF255488A3008755E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44B27AF0255488BA008755E2 /* UIImageView+Extension.swift */,
+				44B27B0125548E3A008755E2 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		44D831182551F04B0013FF4D /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +182,9 @@
 		44D831202551F05C0013FF4D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				44B27AEF255488A3008755E2 /* Extensions */,
 				44D831492551F5420013FF4D /* ActivityIndicator.swift */,
+				44B27B062554911A008755E2 /* URLOpen.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -480,11 +497,14 @@
 			files = (
 				44D831442551F4820013FF4D /* Team.swift in Sources */,
 				446AF1672551E37F001184D4 /* AppDelegate.swift in Sources */,
+				44B27AF1255488BA008755E2 /* UIImageView+Extension.swift in Sources */,
+				44B27B0225548E3A008755E2 /* UIView+Extension.swift in Sources */,
 				44D831342551F1440013FF4D /* TeamsViewController.swift in Sources */,
 				44D8311C2551F04B0013FF4D /* Router.swift in Sources */,
 				44D8314A2551F5420013FF4D /* ActivityIndicator.swift in Sources */,
 				44D8311B2551F04B0013FF4D /* Request.swift in Sources */,
 				44D8313C2551F35F0013FF4D /* TeamCollectionCell.swift in Sources */,
+				44B27B072554911A008755E2 /* URLOpen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

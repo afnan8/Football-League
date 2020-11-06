@@ -15,6 +15,7 @@ class Request {
             //no internet page
         } else {
             AF.request(router).responseJSON { (response:DataResponse) in
+                ActivityIndicator.instance.hide()
                 switch(response.result) {
                 case .success(_):
                     if (response.value as? [String: Any]) != nil {
