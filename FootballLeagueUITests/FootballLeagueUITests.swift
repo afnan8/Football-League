@@ -18,10 +18,9 @@ class FootballLeagueUITests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testTeamRequiredFieldsExist() throws {
+    func testTeamRequiredFieldsExist() throws { //UI Test scucceeded when read from local database
         let app = XCUIApplication()
         let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
         let collectionView = app.collectionViews["teamCollectionViewIdentifier"]
