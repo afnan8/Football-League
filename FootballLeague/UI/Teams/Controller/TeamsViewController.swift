@@ -144,8 +144,8 @@ extension TeamsViewController { // API Handling
         let arr = teamsFromAPI[start..<count]
         teams.append(contentsOf: arr)
         start = count
-        collectionView.reloadData()
         saveTeamsToLocalStorage(Array(arr))
+        collectionView.reloadData()
     }
     
     func checkIfLoadingFinish() {
@@ -160,11 +160,23 @@ extension TeamsViewController { //datebase Handling
     
     func saveTeamsToLocalStorage(_ teams: [Team]) {
         var teamsObject = [TeamObject]()
-        for team in teams {
+        for (team) in teams {
             let teamObj = team.managedObject()
+            teamObj.isOnFavoritList = isTeamOnFavList(team.id)
             teamsObject.append(teamObj)
         }
         RealmManager.instance.saveObjects(Array(teamsObject))
+    }
+    
+    func isTeamOnFavList(_ id: Int) -> Bool {
+        let objc = RealmManager.instance.realm.object(ofType: TeamObject.self, forPrimaryKey: id)
+        _ = teams.enumerated().map() {
+            if $1.id == id {
+                teams[$0].isOnFavoritList = objc?.isOnFavoritList ?? false
+                return
+            }
+        }
+        return  objc?.isOnFavoritList ?? false
     }
     
     func getTeamsFromLocalStorage() {

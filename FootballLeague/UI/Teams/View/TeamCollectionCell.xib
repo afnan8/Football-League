@@ -67,8 +67,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H06-II-75O">
-                                <rect key="frame" x="404" y="18" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="420" y="10" width="30" height="30"/>
                                 <connections>
                                     <action selector="toggleFavoritAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="NaZ-O5-jGR"/>
                                 </connections>
@@ -79,7 +78,7 @@
                             <constraint firstItem="Bmh-4x-Dt8" firstAttribute="leading" secondItem="81w-gl-nKw" secondAttribute="leading" id="1L3-p3-hkW"/>
                             <constraint firstItem="Bmh-4x-Dt8" firstAttribute="height" secondItem="81w-gl-nKw" secondAttribute="height" multiplier="0.8" id="3m2-rK-R3M"/>
                             <constraint firstItem="ghQ-Ag-UcH" firstAttribute="centerY" secondItem="81w-gl-nKw" secondAttribute="centerY" priority="999" id="3zs-LT-iwG"/>
-                            <constraint firstItem="H06-II-75O" firstAttribute="top" secondItem="81w-gl-nKw" secondAttribute="top" constant="18" id="Azj-UH-kOH"/>
+                            <constraint firstItem="H06-II-75O" firstAttribute="top" secondItem="81w-gl-nKw" secondAttribute="top" constant="10" id="Azj-UH-kOH"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ghQ-Ag-UcH" secondAttribute="bottom" id="G36-RN-kx9"/>
                             <constraint firstAttribute="trailing" secondItem="H06-II-75O" secondAttribute="trailing" constant="5" id="RGS-pb-3mZ"/>
                             <constraint firstAttribute="trailing" secondItem="ghQ-Ag-UcH" secondAttribute="trailing" constant="5" id="iKu-mU-poT"/>

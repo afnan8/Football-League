@@ -13,7 +13,8 @@ target 'FootballLeague' do
   pod 'SnapKit'
   pod 'SVGKit'
   pod 'RealmSwift'
-  
+  pod 'SwiftIcons'
+
   target 'FootballLeagueTests' do
     inherit! :search_paths
     # Pods for testing

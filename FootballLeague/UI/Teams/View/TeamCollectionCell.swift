@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftIcons
 
 class TeamCollectionCell: UICollectionViewCell {
 
@@ -37,13 +38,14 @@ class TeamCollectionCell: UICollectionViewCell {
         }
         websiteButton.setTitle(team.website ?? "Link Not Available", for: .normal)
         checkIfTeamIsFavorit()
+        print(team.name, team.isOnFavoritList)
     }
     
     func checkIfTeamIsFavorit() {
         if team.isOnFavoritList {
-            favoritButton.setTitle("Favorit", for: .normal)
+            favoritButton.setIcon(icon: .fontAwesomeSolid(.heart), iconSize: 20, color: .red, backgroundColor: .clear, forState: .normal)
         } else {
-            favoritButton.setTitle("NotFavorit", for: .normal)
+            favoritButton.setIcon(icon: .fontAwesomeRegular(.heart), iconSize: 20, color: .red, backgroundColor: .clear, forState: .normal)
         }
     }
     
