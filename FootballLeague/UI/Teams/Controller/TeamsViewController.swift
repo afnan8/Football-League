@@ -86,7 +86,11 @@ extension TeamsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        openDetailsViewController(indexPath.row)
+        if !Connectivity.isConnectedToInternet() { //No internetConnection
+            //show no internet view
+        } else {
+            _ = openDetailsViewController(indexPath.row)
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
