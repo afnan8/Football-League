@@ -38,7 +38,6 @@ class TeamCollectionCell: UICollectionViewCell {
         }
         websiteButton.setTitle(team.website ?? "Link Not Available", for: .normal)
         checkIfTeamIsFavorit()
-        print(team.name, team.isOnFavoritList)
     }
     
     func checkIfTeamIsFavorit() {

@@ -12,13 +12,15 @@ class TeamsViewController: UIViewController {
     private let teamCellIdentifier = "teamCellIdentifier"
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var teamsFromAPI: [Team]!
-    lazy var teams = [Team]()
+    var teamDetailsViewController = TeamDetailsViewController()
+
+    var teamsFromAPI: [Team]! //has all teams loaded from API
+    lazy var teams = [Team]() //has team pages
     
     var isFinish = false
     var count = 0
     var start = 0
+    let length = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +36,8 @@ class TeamsViewController: UIViewController {
     }
     
     func openDetailsViewController(_ index: Int) {
-        let viewController = TeamDetailsViewController()
-        viewController.id = teams[index].id
-        self.navigationController?.pushViewController(viewController, animated: true)
+        teamDetailsViewController.id = teams[index].id
+        self.navigationController?.pushViewController(teamDetailsViewController, animated: true)
     }
 }
 
@@ -108,6 +109,7 @@ extension TeamsViewController { // API Handling
     func getAllTeams() {
         if !Connectivity.isConnectedToInternet() { //No internetConnection
             getTeamsFromLocalStorage()
+            self.collectionView.reloadData()
         } else {
             getTeamsFromAPI()
         }
@@ -118,8 +120,12 @@ extension TeamsViewController { // API Handling
         ActivityIndicator.instance.show(self.view)
         Request.requestAPI(router: .teamSubresource, callbackSuccess: { [weak self] (result) in
             let teamsArray = result["teams"] as? [[String:Any]]
-            self?.loadTeamMember(teamsArray)
-            self?.loadTeamPage()
+            if teamsArray != nil {
+                self?.loadTeamMember(teamsArray)
+                self?.loadTeamPage()
+            } else {
+                print("No teams Available")
+            }
         }, callbackFail: { (statusCode) in
             //                            AppAlert.instance.show("error".localized(), message ?? "UnknownError", self)
         }) { (result) in
@@ -139,13 +145,13 @@ extension TeamsViewController { // API Handling
     }
     
     func loadTeamPage() {
-        count += 6
+        count += length
         checkIfLoadingFinish()
         let arr = teamsFromAPI[start..<count]
         teams.append(contentsOf: arr)
         start = count
         saveTeamsToLocalStorage(Array(arr))
-        collectionView.reloadData()
+        self.collectionView.reloadData()
     }
     
     func checkIfLoadingFinish() {
@@ -169,7 +175,7 @@ extension TeamsViewController { //datebase Handling
     }
     
     func isTeamOnFavList(_ id: Int) -> Bool {
-        let objc = RealmManager.instance.realm.object(ofType: TeamObject.self, forPrimaryKey: id)
+        let objc = RealmManager.instance.getSavedObject(TeamObject(), id)
         _ = teams.enumerated().map() {
             if $1.id == id {
                 teams[$0].isOnFavoritList = objc?.isOnFavoritList ?? false
@@ -186,7 +192,6 @@ extension TeamsViewController { //datebase Handling
             self.teams.append(team)
         }
         isFinish = true //To disable load in scroll in offline mode
-        self.collectionView.reloadData()
     }
     
 }

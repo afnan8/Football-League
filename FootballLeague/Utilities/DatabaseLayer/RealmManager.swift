@@ -11,31 +11,46 @@ class RealmManager {
     
     static let instance = RealmManager()
     
-    var realm: Realm!
+    private var realm: Realm!
     
     private init() {
+        getRealmSchemaVersion()
+        initializeRealmObject()
+    }
+    
+    private func handleRealmMigration(_ version: UInt64) {
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 3,
+            schemaVersion: version,
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above
             migrationBlock: { migration, oldSchemaVersion in
+                print(oldSchemaVersion, version)
                 // We haven’t migrated anything yet, so oldSchemaVersion == 0
-                if (oldSchemaVersion < 1) {
+                if (oldSchemaVersion < version) {
                     // Nothing to do!
                     // Realm will automatically detect new properties and removed properties
                     // And will update the schema on disk automatically
                 }
             })
-        
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
         
-        initializeRealmObject()
     }
     
-    func initializeRealmObject() {
+    private func getRealmSchemaVersion() {
+        let configCheck = Realm.Configuration();
+        do {
+            let fileUrlIs = try schemaVersionAtURL(configCheck.fileURL!)
+            print("schema version \(fileUrlIs)")
+            handleRealmMigration(fileUrlIs)
+        } catch  {
+            print(error)
+        }
+    }
+    
+    private func initializeRealmObject() {
         do {
             let realm = try Realm()
             self.realm = realm
@@ -43,6 +58,9 @@ class RealmManager {
             print(error)
         }
     }
+}
+
+extension RealmManager { //handle realm operations
     
     func saveObjects(_ objects: [Object]) {
         if realm == nil {
@@ -66,6 +84,16 @@ class RealmManager {
         } else {
             let realmResults = realm.objects(T.self)
             return Array(realmResults)
+        }
+    }
+    
+    func getSavedObject<T: Object>(_ t: T, _ id: Int) -> T? {
+        if realm == nil {
+            initializeRealmObject()
+            return getSavedObject(t, id)
+        } else {
+            let objc = realm.object(ofType: T.self, forPrimaryKey: id)
+            return objc
         }
     }
 }
