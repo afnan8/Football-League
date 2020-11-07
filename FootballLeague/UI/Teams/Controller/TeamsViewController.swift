@@ -33,9 +33,11 @@ class TeamsViewController: UIViewController {
     func setupCollectionView() {
         let nib = UINib(nibName: "TeamCollectionCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: teamCellIdentifier)
+        collectionView.accessibilityIdentifier = "teamCollectionViewIdentifier"
     }
     
     func openDetailsViewController(_ index: Int) {
+        let teamDetailsViewController = TeamDetailsViewController()
         teamDetailsViewController.id = teams[index].id
         self.navigationController?.pushViewController(teamDetailsViewController, animated: true)
     }
@@ -69,8 +71,11 @@ extension TeamsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width
-        let height = collectionView.bounds.height
-        return CGSize(width: width - 20, height: height * 0.2)
+        var height = collectionView.bounds.height * 0.2
+        if height < 150 {
+            height = 150
+        }
+        return CGSize(width: width - 20, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -115,7 +120,6 @@ extension TeamsViewController { // API Handling
         }
     }
     
-    
     func getTeamsFromAPI() {
         ActivityIndicator.instance.show(self.view)
         Request.requestAPI(router: .teamSubresource, callbackSuccess: { [weak self] (result) in
@@ -132,7 +136,6 @@ extension TeamsViewController { // API Handling
             print(result)
         }
     }
-    
     
     func loadTeamMember(_ teamsList: [[String: Any]]?) {
         self.teamsFromAPI = [Team]()

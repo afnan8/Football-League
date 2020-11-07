@@ -21,11 +21,14 @@ class TeamCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.accessibilityIdentifier = "teamCellIdentifier"
+//        self.nameLabel.accessibilityIdentifier = "nameLabelIdnetifier"
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         self.team = nil
+        websiteButton.setTitle(nil, for: .normal)
     }
     
     func loadCellData(_ team: Team) {
@@ -33,9 +36,7 @@ class TeamCollectionCell: UICollectionViewCell {
         imageView.showImage(team.crestUrl)
         nameLabel.text = team.name ?? "-"
         colorsLabel.text = team.clubColors ?? "-"
-        if let area = team.area {
-            venueLabel.text = "\(area.name ?? "-")"
-        }
+        venueLabel.text = team.venue ?? "-"
         websiteButton.setTitle(team.website ?? "Link Not Available", for: .normal)
         checkIfTeamIsFavorit()
     }
