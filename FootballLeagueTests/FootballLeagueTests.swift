@@ -9,25 +9,21 @@ import XCTest
 @testable import FootballLeague
 
 class FootballLeagueTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    let vc = TeamsViewController()
+    
+    func testPaginationInitialValues() {
+        XCTAssertEqual(vc.count, 0)
+        XCTAssertEqual(vc.start, 0)
+        XCTAssertEqual(vc.length, 6)
+        XCTAssertFalse(vc.isFinish)
+        XCTAssertNotNil(vc.teams)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testIdExistWhenOpenDetailsPage() {
+        vc.getTeamsFromLocalStorage()
+        vc.openDetailsViewController(0)
+        let detailsVC = vc.teamDetailsViewController
+        XCTAssertNotNil(detailsVC.id)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
