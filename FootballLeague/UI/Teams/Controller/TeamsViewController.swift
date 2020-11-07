@@ -36,10 +36,11 @@ class TeamsViewController: UIViewController {
         collectionView.accessibilityIdentifier = "teamCollectionViewIdentifier"
     }
     
-    func openDetailsViewController(_ index: Int) {
+    func openDetailsViewController(_ index: Int) -> TeamDetailsViewController {
         let teamDetailsViewController = TeamDetailsViewController()
         teamDetailsViewController.id = teams[index].id
         self.navigationController?.pushViewController(teamDetailsViewController, animated: true)
+        return teamDetailsViewController
     }
 }
 

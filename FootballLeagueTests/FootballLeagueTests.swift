@@ -22,8 +22,7 @@ class FootballLeagueTests: XCTestCase {
     
     func testIdExistWhenOpenDetailsPage() {
         vc.getTeamsFromLocalStorage()
-        vc.openDetailsViewController(0)
-        let detailsVC = vc.teamDetailsViewController
+        let detailsVC = vc.openDetailsViewController(0)
         XCTAssertNotNil(detailsVC.id)
     }
 }
